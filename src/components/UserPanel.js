@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import axios from 'axios';
+import CONFIG from './config';
 
 import {UserContext} from './UserContext';
 
@@ -18,7 +19,7 @@ const UserPanel = () => {
 	const handleLogin = async () => {
 		try {
 			const response = await axios.post(
-				`http://localhost:5050/api/resources/chats/login?username=${inputUsername}`
+				`${CONFIG.HOST}/api/resources/chats/login?username=${inputUsername}`
 			);
 			if (response.status === 200) {
 				setLoggedIn(true);

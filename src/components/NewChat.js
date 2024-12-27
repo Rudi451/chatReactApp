@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 import axios from 'axios';
 import {AppContext} from '../context/AppContext';
+import CONFIG from './config';
 
 const NewChat = () => {
 	const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -19,7 +20,7 @@ const NewChat = () => {
 		event.preventDefault();
 		try {
 			const response = await axios.post(
-				`http://localhost:5050/api/resources/chats/new?username1=${username}&username2=${chatName}`
+				`${CONFIG.HOST}/api/resources/chats/new?username1=${username}&username2=${chatName}`
 			);
 			console.log('Chat created:', response.data);
 			handleCloseDialog();

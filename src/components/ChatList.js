@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import {AppContext} from '../context/AppContext';
+import CONFIG from './config';
 
 import RandomIcon from './RandomIcon';
 import ChatButton from './ChatButton';
@@ -27,7 +28,7 @@ const ChatList = () => {
 				);
 				try {
 					const response = await axios.get(
-						`http://localhost:5050/api/resources/chats`
+						`${CONFIG.HOST}/api/resources/chats`
 					);
 					console.log(response.data);
 					//sort logic
